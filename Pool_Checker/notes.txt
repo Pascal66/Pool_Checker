@@ -1,0 +1,12 @@
+TODO:
+Make some kind of GPS Supplier class. Combines results from both phone and GPS module.
+When asked for a lock, see if the module has a lock. If it doesnt, then enable the phone GPS.
+Recieve listeners. Whenever whichever GPS is updated, pass those results on to whoever is listening. Allows multiple sources to go to multiple destinations though one class
+the suppliers should implement common interface, and should only provide their updates to a GPSProvider when they get them. It is up to the provider to foward those results on to whoever is listening.
+
+enable both module and device. On device, enable both location and status.
+when either provide their data, convert the data to GpsData is needed. Store each providers last result, and the last good result.
+Compare to find out which gpsprovider to use
+if the data from the module has a lock, disable the device location and gps updates, and use it as good.
+if it does not, use the devie gps data
+pass data from module to listeners, and send raw data to server. Server rebuilds data from byte using same class from shared package, then displays.
